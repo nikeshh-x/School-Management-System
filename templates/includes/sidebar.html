@@ -1,0 +1,71 @@
+<aside class="fixed top-0 left-0 h-screen w-64 bg-white flex flex-col border-r border-gray-200 shadow-sm">
+    <div class="p-6 text-2xl font-semibold border-b border-gray-200 bg-linear-to-r from-purple-600 to-blue-700 bg-clip-text text-transparent">
+        School Management
+    </div>
+
+    <nav class="flex-1 px-3 py-6 space-y-1 flex flex-col">
+        <a href="" class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+            <i class="fas fa-home w-5 h-5 mr-3 text-lg"></i>
+            Dashboard
+        </a>
+         <div class="space-y-1">
+            <button onclick="toggleDropdown('studentsDropdown')" class="w-full flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+                <div class="flex items-center">
+                    <i class="fas fa-user-graduate w-5 h-5 mr-3 text-lg"></i>
+                    Students
+                </div>
+                <i class="fas fa-chevron-down text-sm transition-transform duration-200" id="studentsDropdownIcon"></i>
+            </button>
+            <div id="studentsDropdown" class="hidden pl-11 space-y-1">
+                <a href="{% url 'students:list' %}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-list mr-2 text-xs"></i>
+                    All Students
+                </a>
+                <a href="" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-plus-circle mr-2 text-xs"></i>
+                    Create Student
+                </a>
+            </div>
+        </div>
+
+        <a href="" class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+            <i class="fas fa-school w-5 h-5 mr-3 text-lg"></i>
+            Classes
+        </a>
+        <a href="" class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+            <i class="fas fa-cog w-5 h-5 mr-3 text-lg"></i>
+            Settings
+        </a>
+    </nav>
+
+    <div class="p-4 border-t border-gray-200 bg-gray-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-linear-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                <i class="fas fa-user text-xs"></i>
+            </div>
+            <div class="flex-1">
+                <p class="text-sm font-medium text-gray-900">Admin User</p>
+                <p class="text-xs text-gray-500">admin@school.edu</p>
+            </div>
+            <button class="text-gray-400 hover:text-gray-600">
+                <i class="fas fa-sign-out-alt text-lg"></i>
+            </button>
+        </div>
+    </div>
+</aside>
+
+
+<script>
+function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const icon = document.getElementById(dropdownId + 'Icon');
+    
+    if (dropdown.classList.contains('hidden')) {
+        dropdown.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        dropdown.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+    }
+}
+</script>

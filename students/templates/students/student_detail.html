@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="max-w-7xl mt-10">
+        <!-- Breadcrumb -->
+        <div class="mb-4 text-gray-600">
+          <h2 class="text-3xl">Student Details</h2>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white mt-10 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+                <!-- About Me Section -->
+                <div class="mb-8">
+
+                    <!-- Profile Header -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-3xl font-bold mr-4">
+                            {{ student.full_name|first|upper }}
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">{{ student.full_name }}</h3>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Personal Information Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">First Name:</span>
+                            <span class="text-gray-900 font-medium">{{ student.full_name|default:'N/A'  }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Student ID:</span>
+                            <span class="text-gray-900 font-medium">{{ student.student_id|default:'N/A' }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Father Name:</span>
+                            <span class="text-gray-900 font-medium">{{ student.father_name|default:'N/A'  }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Mother Name:</span>
+                            <span class="text-gray-900 font-medium">{{ student.mother_name|default:'N/A'  }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Father's Occupation:</span>
+                            <span class="text-gray-900 font-medium">{{ student.father_occupation|default:'N/A' }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Mother's Occupation:</span>
+                            <span class="text-gray-900 font-medium">{{ student.mother_occupation|default:'N/A' }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Date of Birth:</span>
+                            <span class="text-gray-900 font-medium">{{ student.date_of_birth|date:'Y-m-d'|default:'N/A' }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Class:</span>
+                            <span class="text-gray-900 font-medium">Two</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information Section -->
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        
+                        Contact Information
+                    </h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Primary Phone:</span>
+                            <span class="text-gray-900 font-medium">
+                                {{student.primary_phone|default:'N/A' }}
+                            </span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Secondary Phone:</span>
+                            <span class="text-gray-900 font-medium">
+                                {{student.secondary_phone|default:'N/A' }}
+                            </span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Primary Email:</span>
+                            <span class="text-gray-900 font-medium">{{ student.primary_email|default:'N/A' }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Secondary Email:</span>
+                            <span class="text-gray-900 font-medium">{{student.secondary_email|default:'N/A'}}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Address:</span>
+                            <span class="text-gray-900 font-medium">{{ student.address|default:'Springfield' }}</span>
+                        </div>
+                        <div class="flex">
+                            <span class="text-gray-600 w-32">Admission Date:</span>
+                            <span class="text-gray-900 font-medium">{{ student.joined_date|date:'Y-m-d'|default:'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex justify-end space-x-4 pt-4">
+                    <a href="#" class="text-gray-500 hover:text-red-700 font-medium border py-2 px-4 rounded-lg flex items-center">
+                        Remove
+                    </a>
+                    <a href="#" class="text-white bg-purple-500 hover:bg-transparent hover:border-purple-600 hover:text-purple-700 font-medium border py-2 px-8 rounded-lg flex items-center">
+                        Edit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
