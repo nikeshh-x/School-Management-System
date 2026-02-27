@@ -21,3 +21,6 @@ def student_create(request):
     else:
         form = StudentCreateForm()
     return render(request, 'students/student_create.html',{'form':form,})
+
+def student_edit(request, pk):
+    pass
