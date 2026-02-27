@@ -20,7 +20,25 @@ def student_create(request):
             return redirect('students:list')
     else:
         form = StudentCreateForm()
-    return render(request, 'students/student_create.html',{'form':form,})
+    context = {
+        'form':form,
+        'is_edit': False,
+        'title': 'Create New Student'
+    }
+    return render(request, 'students/student_form.html',context)
 
 def student_edit(request, pk):
-    pass
+    student = get_object_or_404(Student, pk=pk)
+    if request.method == 'POST':
+        form = StudentCreateForm(request.POST ,instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('students:list')
+    else:
+        form = StudentCreateForm(instance=student)
+    context = {
+        'form':form,
+        'is_edit':True,
+        'title':f'Edit Student:{student.full_name}'
+    }
+    return render(request, 'students/student_form.html',context)

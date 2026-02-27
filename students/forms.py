@@ -7,7 +7,7 @@ class StudentCreateForm(forms.ModelForm):
         model = Student
         fields = ['full_name', 'student_id', 'age', 'date_of_birth', 'joined_date',
                  'father_name', 'father_occupation', 'mother_name', 'mother_occupation',
-                 'primary_phone', 'secondary_phone', 'address']
+                 'primary_phone', 'secondary_phone','primary_email', 'secondary_email', 'address']
         widgets = {
             'date_of_birth': forms.DateInput(attrs={
                 'type': 'date',
@@ -58,6 +58,14 @@ class StudentCreateForm(forms.ModelForm):
                 'class': 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all',
                 'placeholder': '5559876543'
             }),
+            'primary_email': forms.EmailInput(attrs={
+                'class': 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all',
+                'placeholder': 'john.doe@example.com'
+            }),
+            'secondary_email': forms.EmailInput(attrs={
+                'class': 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all',
+                'placeholder': 'alternate@example.com'
+            })
         }
         labels = {
             'full_name': 'Full Name',
@@ -71,6 +79,8 @@ class StudentCreateForm(forms.ModelForm):
             'mother_occupation': "Mother's Occupation",
             'primary_phone': 'Primary Phone',
             'secondary_phone': 'Secondary Phone',
+            'primary_email': 'Primary Email',
+            'secondary_email': 'Secondary Email',
             'address': 'Address',
         }
         help_texts = {

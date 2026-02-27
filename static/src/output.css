@@ -415,6 +415,9 @@
   .border-indigo-500 {
     border-color: var(--color-indigo-500);
   }
+  .bg-blue-50 {
+    background-color: var(--color-blue-50);
+  }
   .bg-blue-100 {
     background-color: var(--color-blue-100);
   }

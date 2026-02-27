@@ -1,38 +1,69 @@
 <aside class="fixed top-0 left-0 h-screen w-64 bg-white flex flex-col border-r border-gray-200 shadow-sm">
-    <div class="p-6 text-2xl font-semibold border-b border-gray-200 bg-linear-to-r from-purple-600 to-blue-700 bg-clip-text text-transparent">
+    <div
+        class="p-6 text-2xl font-semibold border-b border-gray-200 bg-linear-to-r from-purple-600 to-blue-700 bg-clip-text text-transparent">
         School Management
     </div>
 
     <nav class="flex-1 px-3 py-6 space-y-1 flex flex-col">
-        <a href="" class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+        <a href="/"
+            class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
             <i class="fas fa-home w-5 h-5 mr-3 text-lg"></i>
             Dashboard
         </a>
-         <div class="space-y-1">
-            <button onclick="toggleDropdown('studentsDropdown')" class="w-full flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+
+        <!-- Students dropdown -->
+        <div class="space-y-1">
+            <button onclick="toggleDropdown('studentsDropdown')"
+                class="w-full flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
                 <div class="flex items-center">
                     <i class="fas fa-user-graduate w-5 h-5 mr-3 text-lg"></i>
                     Students
                 </div>
                 <i class="fas fa-chevron-down text-sm transition-transform duration-200" id="studentsDropdownIcon"></i>
             </button>
-            <div id="studentsDropdown" class="hidden pl-11 space-y-1">
-                <a href="{% url 'students:list' %}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+
+            <!-- Dropdown menu - visibility controlled by localStorage -->
+            <div id="studentsDropdown" class="pl-11 space-y-1 hidden">
+                <a href="{% url 'students:list' %}"
+                    class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 {% if request.resolver_match.url_name == 'list' %}bg-blue-50 text-blue-600{% endif %}">
                     <i class="fas fa-list mr-2 text-xs"></i>
                     All Students
                 </a>
-                <a href="{% url 'students:create' %}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+                <a href="{% url 'students:create' %}"
+                    class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 {% if request.resolver_match.url_name == 'create' %}bg-blue-50 text-blue-600{% endif %}">
                     <i class="fas fa-plus-circle mr-2 text-xs"></i>
                     Create Student
                 </a>
             </div>
         </div>
 
-        <a href="" class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
-            <i class="fas fa-school w-5 h-5 mr-3 text-lg"></i>
-            Classes
-        </a>
-        <a href="" class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+        <!-- Classes dropdown (if needed) -->
+        <div class="space-y-1">
+            <button onclick="toggleDropdown('classesDropdown')"
+                class="w-full flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+                <div class="flex items-center">
+                    <i class="fas fa-school w-5 h-5 mr-3 text-lg"></i>
+                    Classes
+                </div>
+                <i class="fas fa-chevron-down text-sm transition-transform duration-200" id="classesDropdownIcon"></i>
+            </button>
+
+            <div id="classesDropdown" class="pl-11 space-y-1 hidden">
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-list mr-2 text-xs"></i>
+                    All Classes
+                </a>
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+                    <i class="fas fa-plus-circle mr-2 text-xs"></i>
+                    Create Class
+                </a>
+            </div>
+        </div>
+
+        <a href="#"
+            class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
             <i class="fas fa-cog w-5 h-5 mr-3 text-lg"></i>
             Settings
         </a>
@@ -40,7 +71,8 @@
 
     <div class="p-4 border-t border-gray-200 bg-gray-50">
         <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-linear-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+            <div
+                class="w-8 h-8 bg-linear-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
                 <i class="fas fa-user text-xs"></i>
             </div>
             <div class="flex-1">
@@ -54,18 +86,70 @@
     </div>
 </aside>
 
-
 <script>
-function toggleDropdown(dropdownId) {
-    const dropdown = document.getElementById(dropdownId);
-    const icon = document.getElementById(dropdownId + 'Icon');
-    
-    if (dropdown.classList.contains('hidden')) {
-        dropdown.classList.remove('hidden');
-        icon.style.transform = 'rotate(180deg)';
-    } else {
-        dropdown.classList.add('hidden');
-        icon.style.transform = 'rotate(0deg)';
+    // Toggle dropdown and save state to localStorage
+    function toggleDropdown(dropdownId) {
+        const dropdown = document.getElementById(dropdownId);
+        const icon = document.getElementById(dropdownId + 'Icon');
+
+        if (dropdown.classList.contains('hidden')) {
+            // Open dropdown
+            dropdown.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+            // Save open state
+            localStorage.setItem(dropdownId, 'open');
+        } else {
+            // Close dropdown
+            dropdown.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+            // Save closed state
+            localStorage.setItem(dropdownId, 'closed');
+        }
     }
-}
+
+    // Initialize all dropdowns based on localStorage
+    document.addEventListener('DOMContentLoaded', function () {
+        // List of all dropdown IDs
+        const dropdownIds = ['studentsDropdown', 'classesDropdown'];
+
+        dropdownIds.forEach(function (dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            const icon = document.getElementById(dropdownId + 'Icon');
+
+            if (dropdown && icon) {
+                // Get saved state from localStorage
+                const savedState = localStorage.getItem(dropdownId);
+
+                // If saved state is 'open', show the dropdown
+                if (savedState === 'open') {
+                    dropdown.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    // Default to closed
+                    dropdown.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+
+                    // If no saved state, you can optionally set a default
+                    if (!savedState) {
+                        // For example, keep students dropdown open by default on students pages
+                        const currentPath = window.location.pathname;
+                        if (dropdownId === 'studentsDropdown' && currentPath.includes('/students/')) {
+                            dropdown.classList.remove('hidden');
+                            icon.style.transform = 'rotate(180deg)';
+                            localStorage.setItem(dropdownId, 'open');
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+    // Optional: Clear localStorage on logout (if needed)
+    // function logout() {
+    //     // Clear all dropdown states
+    //     localStorage.removeItem('studentsDropdown');
+    //     localStorage.removeItem('classesDropdown');
+    //     // Redirect to logout URL
+    //     window.location.href = logout url";
+    // }
 </script>
