@@ -11,56 +11,22 @@
             Dashboard
         </a>
 
-        <!-- Students dropdown -->
-        <div class="space-y-1">
-            <button onclick="toggleDropdown('studentsDropdown')"
-                class="w-full flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
+        <!-- Students -->
+            <a href="{% url 'students:list' %}" class="w-full flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
                 <div class="flex items-center">
                     <i class="fas fa-user-graduate w-5 h-5 mr-3 text-lg"></i>
                     Students
                 </div>
-                <i class="fas fa-chevron-down text-sm transition-transform duration-200" id="studentsDropdownIcon"></i>
-            </button>
+            </a>
 
-            <!-- Dropdown menu - visibility controlled by localStorage -->
-            <div id="studentsDropdown" class="pl-11 space-y-1 hidden">
-                <a href="{% url 'students:list' %}"
-                    class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 {% if request.resolver_match.url_name == 'list' %}bg-blue-50 text-blue-600{% endif %}">
-                    <i class="fas fa-list mr-2 text-xs"></i>
-                    All Students
-                </a>
-                <a href="{% url 'students:create' %}"
-                    class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 {% if request.resolver_match.url_name == 'create' %}bg-blue-50 text-blue-600{% endif %}">
-                    <i class="fas fa-plus-circle mr-2 text-xs"></i>
-                    Create Student
-                </a>
-            </div>
-        </div>
-
-        <!-- Classes dropdown (if needed) -->
-        <div class="space-y-1">
-            <button onclick="toggleDropdown('classesDropdown')"
+        <!-- Class -->
+            <a href="{% url 'grade:list' %}" onclick="toggleDropdown('classesDropdown')"
                 class="w-full flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
                 <div class="flex items-center">
                     <i class="fas fa-school w-5 h-5 mr-3 text-lg"></i>
                     Classes
                 </div>
-                <i class="fas fa-chevron-down text-sm transition-transform duration-200" id="classesDropdownIcon"></i>
-            </button>
-
-            <div id="classesDropdown" class="pl-11 space-y-1 hidden">
-                <a href="{% url 'grade:list' %}"
-                    class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
-                    <i class="fas fa-list mr-2 text-xs"></i>
-                    All Classes
-                </a>
-                <a href="#"
-                    class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
-                    <i class="fas fa-plus-circle mr-2 text-xs"></i>
-                    Create Class
-                </a>
-            </div>
-        </div>
+            </a>
 
         <a href="#"
             class="flex items-center px-4 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl cursor-pointer transition-all duration-200 font-medium">
