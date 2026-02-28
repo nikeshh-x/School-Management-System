@@ -42,3 +42,11 @@ def student_edit(request, pk):
         'title':f'Edit Student:{student.full_name}'
     }
     return render(request, 'students/student_form.html',context)
+
+
+def student_delete(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    if request.method == 'POST':
+        student.delete()
+        return redirect('students:list')
+    return render(request, 'students/student_delete.html', {'student':student,})
